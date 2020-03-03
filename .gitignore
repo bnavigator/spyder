@@ -35,3 +35,6 @@ spyder_crash.log
 .ropeproject/
 .vscode/
 result.xml
+
+# Pylint dirs/files
+.pylint.d/
