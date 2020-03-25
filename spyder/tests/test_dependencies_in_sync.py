@@ -208,7 +208,10 @@ def test_dependencies_for_binder_in_sync():
     # There's no need to test for this because we install it
     # from master in some cases.
     for req in [spyder_env, spyder_reqs]:
-        req.pop('python-language-server')
+        try:
+           req.pop('python-language-server')
+        except KeyError:
+           pass
 
     # Check that the requirement files match the environment yaml file
     full_reqs = {}
