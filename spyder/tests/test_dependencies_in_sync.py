@@ -232,7 +232,10 @@ def test_dependencies_for_spyder_dialog_in_sync():
     # a subrepo for them or we're installing them from master.
     for req in [spyder_deps, spyder_reqs]:
         req.pop('spyder-kernels')
-        req.pop('python-language-server')
+        try:
+            req.pop('python-language-server')
+        except KeyError:
+            pass
 
     if 'pyqt' in spyder_reqs:
         spyder_reqs.pop('pyqt')
@@ -258,7 +261,10 @@ def test_dependencies_for_spyder_setup_install_requires_in_sync():
     # a subrepo for them or we're installing them from master.
     for req in [spyder_reqs, spyder_setup]:
         req.pop('spyder-kernels')
-        req.pop('python-language-server')
+        try:
+            req.pop('python-language-server')
+        except KeyError:
+            pass
 
     # rtree is only available through conda
     if 'rtree' in spyder_reqs:
