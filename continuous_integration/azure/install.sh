@@ -21,7 +21,7 @@ if [ "$USE_CONDA" = "yes" ]; then
     conda install -q -y -c spyder-ide --file requirements/tests.txt
 
     # Github backend tests are failing with 1.1.1d
-    conda install -q -y openssl=1.1.1c
+    conda install -q -y openssl>=1.1.1c
 
     # Remove spyder-kernels to be sure that we use its subrepo
     conda remove -q -y --force spyder-kernels
@@ -30,7 +30,7 @@ if [ "$USE_CONDA" = "yes" ]; then
     pip install -q --no-deps git+https://github.com/bnavigator/python-language-server@jedi-unpin
 else
     # Github backend tests are failing with 1.1.1d
-    conda install -q -y openssl=1.1.1c
+    conda install -q -y openssl>=1.1.1c
 
     # Update pip and setuptools
     pip install -U pip setuptools
