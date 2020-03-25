@@ -1,0 +1,2 @@
+python-jsonrpc-server>=0.3.2
+pluggy

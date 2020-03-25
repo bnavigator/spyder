@@ -24,6 +24,11 @@ if [ "$USE_CONDA" = "yes" ]; then
 
     # Install main dependencies
     conda install -q -y -c spyder-ide --file requirements/conda.txt
+    conda install -q -y -c spyder-ide --file requirements/pyls-pyall.txt ujson
+    conda install -q -y -c spyder-ide ujson
+    if [ "$PYTHON_VERSION" = "2.7" ]; then
+        conda install -q -y -c spyder-ide --file requirements/pyls-py2.txt  
+    fi
 
     # Install test ones
     conda install -q -y -c spyder-ide --file requirements/tests.txt
@@ -71,7 +76,7 @@ else
     pip uninstall -q -y spyder-kernels
 
     # Install python-language-server from Github
-    pip install -q git+https://github.com/bnavigator/python-language-server
+    pip install -q git+https://github.com/bnavigator/python-language-server@jedi-unpin
 
     # Install coveralls
     pip install -q coveralls

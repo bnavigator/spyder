@@ -6,8 +6,13 @@ if %USE_CONDA% == yes (
         conda install -q -y python=3.6.8=h9f7ef89_7
     )
 
-    conda install -q -y -c spyder-ide --file requirements/conda.txt
+    conda install -q -y -c spyder-ide --file requirements/conda.txt  --file requirements/pyls-pyall.txt
     if errorlevel 1 exit 1
+    if %PYTHON_VERSION% == 2.7 (
+        conda install -q -y -c spyder-ide --file requirements/pyls-py2.txt
+    )
+
+
 
     conda install -q -y -c spyder-ide --file requirements/tests.txt
     if errorlevel 1 exit 1
