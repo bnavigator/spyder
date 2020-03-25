@@ -74,7 +74,7 @@ TEST_FILE_REL = 'conftest.py'
             ('# gh:spyder-ide/spyder#123\n', 'gh:spyder-ide/spyder#123', None,
              'https://github.com/spyder-ide/spyder/issues/123'),
             pytest.param(('# gh-123\n', 'gh-123', HERE,
-                          'https://github.com/spyder-ide/spyder/issues/123'),
+                          'https://github.com/bnavigator/spyder/issues/123'),
                          marks=pytest.mark.skipif(
                              not(get_git_remotes(HERE)),
                              reason='not in a git repository')),
