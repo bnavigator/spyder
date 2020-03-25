@@ -210,7 +210,7 @@ install_requires = [
     'ipython>=4.0',
     # This is here until Jedi 0.15+ fixes completions for
     # Numpy and Pandas
-    'jedi==0.15.2',
+    'jedi',
     # Don't require keyring for Python 2 and Linux
     # because it depends on system packages
     'keyring;sys_platform!="linux2"',
