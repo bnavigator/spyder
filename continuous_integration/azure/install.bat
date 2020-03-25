@@ -60,7 +60,7 @@ conda list -n spytest-ž
 if errorlevel 1 exit 1
 
 :: Install python-language-server from master
-pip install -q --no-deps git+https://github.com/palantir/python-language-server
+pip install -q --no-deps git+https://github.com/bnavigator/python-language-server@jedi-unpin
 if errorlevel 1 exit 1
 
 :: Install codecov

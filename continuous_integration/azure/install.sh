@@ -23,7 +23,7 @@ if [ "$USE_CONDA" = "yes" ]; then
     conda remove -q -y --force spyder-kernels
 
     # Install python-language-server from Github with no deps
-    pip install -q --no-deps git+https://github.com/palantir/python-language-server
+    pip install -q --no-deps git+https://github.com/bnavigator/python-language-server@jedi-unpin
 else
     # Github backend tests are failing with 1.1.1d
     conda install -q -y openssl=1.1.1c
@@ -47,7 +47,7 @@ else
     pip uinstall -q -y spyder-kernels
 
     # Install python-language-server from Github
-    pip install -q git+https://github.com/palantir/python-language-server
+    pip install -q git+https://github.com/bnavigator/python-language-server
 fi
 
 # To check our manifest

@@ -38,7 +38,7 @@ if [ "$USE_CONDA" = "yes" ]; then
     conda remove -q -y --force spyder-kernels
 
     # Install python-language-server from Github with no deps
-    pip install -q --no-deps git+https://github.com/palantir/python-language-server
+    pip install -q --no-deps git+https://github.com/bnavigator/python-language-server@jedi-unpin
 else
     # Downgrade to Python 3.7.3 because 3.7.4 is not pulling
     # wheels for all packages
@@ -71,7 +71,7 @@ else
     pip uninstall -q -y spyder-kernels
 
     # Install python-language-server from Github
-    pip install -q git+https://github.com/palantir/python-language-server
+    pip install -q git+https://github.com/bnavigator/python-language-server
 
     # Install coveralls
     pip install -q coveralls
