@@ -41,6 +41,10 @@ def test_status_bar_time_based_widgets(status_bar, qtbot):
         swidgets.append(swidget)
     assert win
     assert len(swidgets) == 2
+    for w in swidgets:
+        assert w.get_value()
+        assert w.get_tooltip()
+        assert w.get_icon()
 
 
 class StatusBarWidgetTest(StatusBarWidget):
