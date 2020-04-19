@@ -42,29 +42,25 @@ def windows_memory_usage():
     windll.kernel32.GlobalMemoryStatusEx(byref(memorystatus))
     return float(memorystatus.dwMemoryLoad)
 
-def psutil_phymem_usage():
-    """
-    Return physical memory usage (float)
-    Requires the cross-platform psutil (>=v0.3) library
+
+def psutil_virtmem_usage():
+    """Return physical memory usage (float).
+
+    Requires the cross-platform psutil library
     (https://github.com/giampaolo/psutil)
     """
-    import psutil
-    # This is needed to avoid a deprecation warning error with
-    # newer psutil versions
-    try:
-        percent = psutil.virtual_memory().percent
-    except:
-        percent = psutil.phymem_usage().percent
+    percent = psutil.virtual_memory().percent
     return percent
 
-if programs.is_module_installed('psutil', '>=0.3.0'):
-    #  Function `psutil.phymem_usage` was introduced in psutil v0.3.0
-    memory_usage = psutil_phymem_usage
+
+if programs.is_module_installed('psutil'):
+    import psutil
+    memory_usage = psutil_virtmem_usage
 elif os.name == 'nt':
     # Backup plan for Windows platforms
     memory_usage = windows_memory_usage
 else:
-    raise ImportError("Feature requires psutil 0.3+ on non Windows platforms")
+    raise ImportError("Feature requires psutil on non Windows platforms")
 
 
 if __name__ == '__main__':
